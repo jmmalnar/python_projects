@@ -41,7 +41,7 @@ def find_primes(num):
 # TEST #
 ########
 
-class IsPrimesTest(unittest.TestCase):
+class IsPrimesTests(unittest.TestCase):
     def test_19_should_be_prime(self):
         """Verify that inputting a prime number into the is_prime method returns true"""
         self.assertEqual(is_prime(19), True)

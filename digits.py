@@ -1,7 +1,11 @@
 import unittest
 
-# Find the sum of all digits of an integer
+"""
+Find the sum of all digits of an integer.
+For example, 321 is 3+2+1=6
+"""
 
+# The following method I wanted to do it the hard way, not using a split, but more math
 def sum_of_digits_hard(num):
     # Convert the integer to a string
     s = str(num)
@@ -21,6 +25,7 @@ def sum_of_digits_hard(num):
 
     return sm
 
+# The following method I used a simple split
 def sum_of_digits_easy(num):
     # Convert the integer to a string
     s = str(num)
