@@ -51,15 +51,17 @@ class IsPrimesTests(unittest.TestCase):
         self.assertEqual(is_prime(20), False)
 
     def test_1_should_not_be_prime(self):
-        """Verify that inputting a non-prime number into the is_prime method returns false"""
+        """Verify that inputting 1 into the is_prime method returns false"""
         self.assertEqual(is_prime(1), False)
 
 class FindPrimesTests(unittest.TestCase):
     def test_primes_to_20(self):
+        """Verify that all of the correct primes less than 20 are returned"""
         primes = find_primes(20)
         self.assertEqual(primes, [2, 3, 5, 7, 11, 13, 17, 19])
 
     def test_1_should_not_be_prime(self):
+        """Verify that nothing is returned when you try and find all primes under 1"""
         primes = find_primes(1)
         self.assertEqual(primes, [])
 
