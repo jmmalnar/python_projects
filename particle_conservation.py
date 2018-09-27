@@ -13,6 +13,7 @@
 # muon = {"mass": , "charge": , "l_e": , "l_m": , "l_t": , "b": , "s": }
 
 class Particle:
+    # name, mass, charge, spin, lepton_e, lepton_m, lepton_t, baryon number, strangeness, position (left side/right side)
     def __init__(self, name, mass, charge, spin, l_e, l_m, l_t, b, s, pos):
         self.name = name
         self.mass = mass
@@ -30,6 +31,7 @@ class Particle:
 class SystemOfParticles:
     def __init__(self, *args):
 
+        # Separate into left side and right side
         self.left_side = []
         self.right_side = []
 
@@ -38,12 +40,6 @@ class SystemOfParticles:
                 self.left_side.append(arg)
             elif arg.pos == 1:
                 self.right_side.append(arg)
-
-    def get_total_mass(self, particles):
-        mass = 0
-        for particle in particles:
-            mass += particle.mass
-        return mass
 
     def charge_conservation(self):
         left_charge_count = 0
@@ -69,6 +65,19 @@ class SystemOfParticles:
         if left_b_count == right_b_count:
             baryon_conserved = True
         return baryon_conserved
+
+    def lepton_e_conservation(self):
+        left_le_count = 0
+        right_le_count = 0
+        lepton_e_conserved = False
+        for particle in self.left_side:
+            left_le_count += particle.l_e
+        for particle in self.right_side:
+            right_le_count += particle.l_e
+        if left_le_count == right_le_count:
+            lepton_e_conserved = True
+        return lepton_e_conserved
+
 
     def system_conservation(self):
         system_conserved = False
